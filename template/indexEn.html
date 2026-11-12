@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>João Rodrigo — Java/Python Developer</title>
+    <meta name="description" content="Portfolio of João Rodrigo, Java/Python developer: technologies, projects and contact.">
+    <meta property="og:title" content="João Rodrigo — Java/Python Developer">
+    <meta property="og:description" content="Portfolio of João Rodrigo, Java/Python developer: technologies, projects and contact.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <link rel="alternate" hreflang="pt-BR" href="index.html">
+    <link rel="alternate" hreflang="en" href="indexEn.html">
+    <link rel="alternate" hreflang="x-default" href="index.html">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#conteudo">Skip to content</a>
+    <div class="sky" aria-hidden="true">
+        <div class="stars"></div>
+    </div>
+    <header class="site-header">
+        <a class="brand" href="indexEn.html">João Rodrigo</a>
+        <div class="controls">
+            <div class="lang">
+                <a href="index.html" hreflang="pt-BR" lang="pt-BR" aria-label="Versão em português">PT</a>
+                <span aria-current="true">EN</span>
+            </div>
+            <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light/dark theme"></button>
+        </div>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"></button>
+        <nav aria-label="Menu">
+            <!-- Main menu: the last item leads to the Credits page -->
+            <ul class="nav-list" id="menu">
+                <li><a href="indexEn.html" aria-current="page">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="wrap" id="conteudo">
+        <section class="panel hero reveal">
+            <div>
+                <p class="eyebrow">Java/Python</p>
+                <h1>João Rodrigo</h1>
+                <p class="lead">Java and Python developer focused on REST APIs, clean architecture and automation that solve real problems.</p>
+                <div class="actions">
+                    <a class="btn btn-fill" href="projects.html">See projects</a>
+                    <a class="btn" href="contact.html">Get in touch</a>
+                </div>
+            </div>
+            <div class="photo">
+                <img src="img/foto minha.jpeg" width="240" height="300" alt="Portrait of João Rodrigo" fetchpriority="high">
+            </div>
+        </section>
+        <section class="panel reveal" aria-labelledby="stack">
+            <h2 id="stack">Main technologies</h2>
+            <ul class="tags">
+                <li>Java</li>
+                <li>Spring Boot</li>
+                <li>PostgreSQL</li>
+                <li>Python</li>
+                <li>HTML / CSS / JS</li>
+            </ul>
+            <figure class="constellation">
+                <figcaption>Python and Java: two constellations joined by a shared star.</figcaption>
+            </figure>
+        </section>
+        <section class="panel" aria-labelledby="feat">
+            <h2 id="feat">Featured projects</h2>
+            <ul class="grid">
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Java">
+                            <i class="dot jv"></i>
+                        </span>
+                        <h3>Scheduling API</h3>
+                        <p>REST API for managing tattoo studio appointments, built with Java 21 and Spring Boot 3, following the principles of Clean Architecture, Hexagonal Architecture and Domain-Driven Design (DDD).</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>The Scheduling Service is responsible for: customer management, appointment creation and control, and SSO integration via JWT</p>
+                                <ul class="tags">
+                                    <li>Java</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/agendamento" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Python">
+                            <i class="dot py"></i>
+                        </span>
+                        <h3>Alpha Assistant</h3>
+                        <p>Python virtual assistant with voice recognition, command execution, external API integrations and a modular service-based architecture.</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>Alpha Assistant is a Python virtual assistant able to interpret voice commands and perform actions such as web searches, weather checks, reading the date/time and interacting with AI.</p>
+                                <ul class="tags">
+                                    <li>Python</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/alpha-assistant" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+            </ul>
+            <p><a href="projects.html">See all projects</a></p>
+        </section>
+    </main>
+    <footer class="wrap panel site-footer">
+        <p>João Rodrigo — built with plain HTML, CSS and JavaScript.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects — João Rodrigo</title>
+    <meta name="description" content="Projects by João Rodrigo with descriptions, technologies and repository links.">
+    <meta property="og:title" content="Projects — João Rodrigo">
+    <meta property="og:description" content="Projects by João Rodrigo with descriptions, technologies and repository links.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <!-- Languages: both files live in the same folder, so the links are relative -->
+    <link rel="alternate" hreflang="pt-BR" href="projetos.html">
+    <link rel="alternate" hreflang="en" href="projects.html">
+    <link rel="alternate" hreflang="x-default" href="projetos.html">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <!-- ===== ACCESSIBILITY: skip straight to the content ===== -->
+    <a class="skip" href="#conteudo">Skip to content</a>
+    <!-- ===== BACKGROUND: sky that darkens as you scroll (stars are created by main.js) ===== -->
+    <div class="sky" aria-hidden="true">
+        <div class="stars"></div>
+    </div>
+    <!-- ===== HEADER: brand, PT|EN language switch, light/dark theme and menu ===== -->
+    <header class="site-header">
+        <a class="brand" href="indexEn.html">João Rodrigo</a>
+        <div class="controls">
+            <div class="lang">
+                <a href="projetos.html" hreflang="pt-BR" lang="pt-BR" aria-label="Versão em português">PT</a>
+                <span aria-current="true">EN</span>
+            </div>
+            <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light/dark theme"></button>
+        </div>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"></button>
+        <nav aria-label="Menu">
+            <!-- Main menu: the last item leads to the Credits page -->
+            <ul class="nav-list" id="menu">
+                <li><a href="indexEn.html">Home</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="wrap" id="conteudo">
+        <!-- ===== SECTION 1: title, language legend and constellation ===== -->
+        <section class="panel reveal">
+            <h1>Projects</h1>
+            <p class="lead">Hover over a card (or press Tab) to see each project's details. On mobile, everything is already open.</p>
+            <p class="legend">
+                <span><i class="dot py"></i>Python</span>
+                <span><i class="dot jv"></i>Java</span>
+            </p>
+            <figure class="constellation">
+                <figcaption>Python and Java: two constellations joined by a shared star.</figcaption>
+            </figure>
+        </section>
+        <!-- ===== SECTION 2: professional experience (Já É) ===== -->
+        <section class="panel reveal" aria-labelledby="exp">
+            <h2 id="exp">Professional experience</h2>
+            <article class="card featured">
+                <h3>Já É</h3>
+                <p>Smart scheduling platform for self-employed professionals, organized as microservices.</p>
+                <p><strong>My role:</strong> Back-end development of the scheduling, authentication (SSO), payment and gamification services.</p>
+                <p><strong>Technologies:</strong> Java 21, Spring Boot 3, PostgreSQL, MongoDB, Redis, JWT and Docker.</p>
+            </article>
+        </section>
+        <!-- ===== SECTION 3: project list (cards) ===== -->
+        <section class="panel" aria-label="Projects">
+            <ul class="grid">
+                <!-- Project: Scheduling API -->
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Java">
+                            <i class="dot jv"></i>
+                        </span>
+                        <h3>Scheduling API</h3>
+                        <p>REST API for managing tattoo studio appointments, built with Java 21 and Spring Boot 3, following the principles of Clean Architecture, Hexagonal Architecture and Domain-Driven Design (DDD).</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>The Scheduling Service is responsible for: customer management, appointment creation and control, and SSO integration via JWT.</p>
+                                <ul class="tags">
+                                    <li>Java</li>
+                                    <li>Spring Boot</li>
+                                    <li>PostgreSQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/agendamento" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+                <!-- Project: Alpha Assistant -->
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Python">
+                            <i class="dot py"></i>
+                        </span>
+                        <h3>Alpha Assistant</h3>
+                        <p>Python virtual assistant with voice recognition, command execution, external API integrations and a modular service-based architecture.</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>Alpha Assistant is a Python virtual assistant able to interpret voice commands and perform actions such as web searches, weather checks, reading the date/time and interacting with AI.</p>
+                                <ul class="tags">
+                                    <li>Python</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/alpha-assistant" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+                <!-- Project: Machine Learning -->
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Python">
+                            <i class="dot py"></i>
+                        </span>
+                        <h3>Machine Learning</h3>
+                        <p>Machine Learning studies with Python: chart building, data analysis, classification, clustering and model validation.</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>Learning project built from Alura courses, gathering notebooks and scripts with exercises on classification, dimensionality reduction, clustering and model evaluation.</p>
+                                <ul class="tags">
+                                    <li>Python</li>
+                                    <li>Jupyter Notebook</li>
+                                    <li>Data Analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/MachineLearning" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+                <!-- Project: CNPJ Lookup -->
+                <li class="reveal">
+                    <article class="card">
+                        <span class="langs" role="img" aria-label="Java">
+                            <i class="dot jv"></i>
+                        </span>
+                        <h3>CNPJ Lookup</h3>
+                        <p>API for looking up and validating CNPJ numbers, with support for the alphanumeric format.</p>
+                        <div class="card-extra">
+                            <div>
+                                <p>The CNPJ Lookup receives a CNPJ, validates the number (traditional numeric or alphanumeric format) and returns the company registration data obtained from public sources. Sources are queried in priority order, with fault tolerance and without exposing internal details to the client.</p>
+                                <ul class="tags">
+                                    <li>Java</li>
+                                    <li>Spring Boot</li>
+                                    <li>Gradle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="links">
+                            <a href="https://github.com/jrodrigo340/Consulta-de-CNPJ" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <!-- ===== FOOTER ===== -->
+    <footer class="wrap panel site-footer">
+        <p>João Rodrigo — built with plain HTML, CSS and JavaScript.</p>
+    </footer>
+</body>
+</html>

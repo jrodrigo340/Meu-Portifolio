@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — João Rodrigo</title>
+    <meta name="description" content="Get in touch with João Rodrigo via form, email, LinkedIn or GitHub.">
+    <meta property="og:title" content="Contact — João Rodrigo">
+    <meta property="og:description" content="Get in touch with João Rodrigo via form, email, LinkedIn or GitHub.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <link rel="alternate" hreflang="pt-BR" href="contato.html">
+    <link rel="alternate" hreflang="en" href="contact.html">
+    <link rel="alternate" hreflang="x-default" href="contato.html">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#conteudo">Skip to content</a>
+    <div class="sky" aria-hidden="true">
+        <div class="stars"></div>
+    </div>
+    <header class="site-header">
+        <a class="brand" href="indexEn.html">João Rodrigo</a>
+        <div class="controls">
+            <div class="lang">
+                <a href="contato.html" hreflang="pt-BR" lang="pt-BR" aria-label="Versão em português">PT</a>
+                <span aria-current="true">EN</span>
+            </div>
+            <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light/dark theme"></button>
+        </div>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"></button>
+        <nav aria-label="Menu">
+            <!-- Main menu: the last item leads to the Credits page -->
+            <ul class="nav-list" id="menu">
+                <li><a href="indexEn.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="wrap" id="conteudo">
+        <section class="panel reveal">
+            <h1>Contact</h1>
+            <p class="lead">Want to talk about a role or a project? Write below.</p>
+            <p>All fields are required.</p>
+            <form class="form" id="contact-form" novalidate>
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="name-error">
+                    <p class="error" id="name-error"></p>
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" maxlength="120" required aria-describedby="email-error">
+                    <p class="error" id="email-error"></p>
+                </div>
+                <div class="field">
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" autocomplete="off" maxlength="120" required aria-describedby="subject-error">
+                    <p class="error" id="subject-error"></p>
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" maxlength="2000" required aria-describedby="message-error"></textarea>
+                    <p class="error" id="message-error"></p>
+                </div>
+                <div>
+                    <button class="btn btn-fill" type="submit">Send message</button>
+                </div>
+                <p class="status" id="form-status" role="status"></p>
+            </form>
+        </section>
+        <section class="panel reveal" aria-labelledby="other">
+            <h2 id="other">Prefer another channel?</h2>
+            <ul class="contact-links">
+                <li><a class="btn" href="mailto:joaorodrigooliver9@gmail.com">Email</a></li>
+                <li><a class="btn" href="https://www.linkedin.com/in/joao-rodrigo-ba56142a6" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a class="btn" href="https://github.com/jrodrigo340" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="wrap panel site-footer">
+        <p>João Rodrigo — built with plain HTML, CSS and JavaScript.</p>
+    </footer>
+</body>
+</html>

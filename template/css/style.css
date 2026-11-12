@@ -1,0 +1,191 @@
+/* ============================================================
+   ÍNDICE DO ARQUIVO
+   1. Temas (variáveis de cor)   6. Início (foto, botões, etiquetas)
+   2. Base                       7. Projetos (cartões e constelação)
+   3. Céu estrelado              8. Contato (formulário)
+   4. Layout (painéis)           9. Movimento (animações)
+   5. Cabeçalho e menu
+   ============================================================ */
+
+/* ================================================================
+   1. TEMAS: toda cor é uma variável; o JS só troca data-theme no <html>
+   ================================================================ */
+:root {
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bg: #FBF6EC; --text: #231A14; --muted: #5B4A3E; --accent: #C2410C; --on-accent: #fff;
+  --surface: #FFFDF8; --border: #D9CDB8; --night: #1C1612; --star: #FFF3D6;
+  --py: #2F5F94; --jv: #B45309; --glow: rgba(194, 65, 12, .35);
+  --danger: #B42318; --ok: #1B6E3A;
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --bg: #14110F; --text: #F3EBDD; --muted: #BFB3A1; --accent: #F2A65A; --on-accent: #14110F;
+  --surface: #1E1A17; --border: #3A322B; --night: #0A0807;
+  --py: #7FB0E6; --jv: #F2A65A; --glow: rgba(242, 166, 90, .4);
+  --danger: #FF9A8F; --ok: #7DDC9A;
+  color-scheme: dark;
+}
+
+/* ================================================================
+   2. BASE (mobile-first: estilos simples primeiro, @media só para telas maiores)
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font: 1rem/1.7 var(--sans); color: var(--text); background: var(--bg); transition: opacity .18s; }
+body.leaving { opacity: 0; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .6em; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); }
+h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; max-width: 65ch; }
+a { color: var(--accent); }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 20; padding: .6rem 1rem; background: var(--accent); color: var(--on-accent); }
+.skip:focus { top: 1rem; }
+
+/* ================================================================
+   3. CÉU (fundo fixo): --sky vai de 0 a 1 conforme você rola
+   ================================================================ */
+.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.sky::before { content: ""; position: absolute; inset: 0; background: var(--night); opacity: var(--sky, 0); }
+.stars { position: absolute; inset: 0; opacity: calc((var(--sky, 0) - .25) * 1.5); }
+[data-theme="dark"] .stars { opacity: max(.4, calc((var(--sky, 0) - .25) * 1.5)); }
+.star { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: var(--star); animation: twinkle 4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.star.big { width: 3px; height: 3px; }
+@keyframes twinkle { 50% { opacity: .25; } }
+
+/* ================================================================
+   4. LAYOUT: o texto fica em "painéis" para o contraste não depender do céu
+   ================================================================ */
+.wrap { width: min(100% - 2rem, 60rem); margin-inline: auto; }
+.panel {
+  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid var(--border); border-radius: 1.25rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem); margin-block: 1.25rem;
+}
+
+/* ================================================================
+   5. CABEÇALHO E MENU
+   ================================================================ */
+.site-header {
+  position: sticky; top: 0; z-index: 10; view-transition-name: header;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem;
+  padding: .5rem max(1rem, calc((100% - 60rem) / 2));
+  background: var(--bg); border-bottom: 1px solid var(--border);
+}
+.brand { font: 700 1.15rem var(--serif); color: var(--text); text-decoration: none; }
+.controls { order: 1; margin-left: auto; display: flex; align-items: center; gap: .5rem; }
+.nav-toggle { order: 2; display: none; }
+.js .nav-toggle { display: inline-flex; }
+.site-header nav { order: 3; width: 100%; }
+.nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .25rem; }
+.js .nav-list { display: none; }
+.js .nav-list.open { display: flex; }
+.nav-list a { position: relative; display: block; padding: .6rem .5rem; color: var(--text); text-decoration: none; }
+.nav-list a::after { content: ""; position: absolute; left: .5rem; right: .5rem; bottom: .3rem; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
+.nav-list a:hover::after, .nav-list a[aria-current="page"]::after { transform: scaleX(1); }
+.icon-btn { min-width: 2.75rem; min-height: 2.75rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); color: var(--text); font-size: 1.1rem; cursor: pointer; align-items: center; justify-content: center; }
+.theme-toggle::before { content: "\263E"; }
+[data-theme="dark"] .theme-toggle::before { content: "\2600"; }
+.nav-toggle::before { content: "\2630"; }
+.nav-toggle[aria-expanded="true"]::before { content: "\2715"; }
+.lang { display: flex; font-size: .9rem; }
+.lang > * { display: flex; align-items: center; min-height: 2.75rem; padding: 0 .6rem; }
+.lang a { color: var(--text); border-left: 1px solid var(--border); }
+.lang [aria-current] { font-weight: 700; color: var(--accent); }
+@media (min-width: 48em) {
+  .site-header nav { order: 1; width: auto; margin-left: auto; }
+  .controls { order: 2; margin-left: 0; }
+  .js .nav-toggle { display: none; }
+  .nav-list, .js .nav-list { display: flex; flex-direction: row; }
+}
+
+/* ================================================================
+   6. INÍCIO: foto flutuando, botões e etiquetas
+   ================================================================ */
+.hero { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 48em) { .hero { grid-template-columns: 1.3fr 1fr; } }
+.eyebrow { color: var(--accent); font-weight: 600; margin-bottom: .4em; }
+.lead { font-size: 1.2rem; color: var(--muted); }
+.photo { justify-self: center; animation: float 6s ease-in-out infinite; }
+.photo img { width: min(60vw, 15rem); aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 1rem 1rem; border: 1px solid var(--border); box-shadow: 0 18px 40px -18px var(--glow); }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+.btn { display: inline-block; padding: .75rem 1.4rem; border: 2px solid var(--accent); border-radius: 999px; font: 600 1rem var(--sans); text-decoration: none; color: var(--accent); background: transparent; cursor: pointer; transition: background .25s, color .25s, transform .25s, box-shadow .25s; }
+.btn:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); box-shadow: 0 8px 24px -8px var(--glow); }
+.btn-fill { background: var(--accent); color: var(--on-accent); }
+.tags { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.tags li { font: .85rem var(--mono); padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 999px; }
+
+/* ================================================================
+   7. PROJETOS: cartões que brilham e revelam o detalhe
+   ================================================================ */
+.grid { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.grid > li { display: flex; min-width: 0; } /* min-width: 0 deixa a coluna encolher em vez de estourar o painel */
+.card { flex: 1; display: flex; flex-direction: column; gap: .6rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; transition: transform .3s, box-shadow .3s, border-color .3s; }
+.card h3, .card p { margin: 0; }
+.card h3 { overflow-wrap: anywhere; } /* nomes longos quebram em vez de vazar */
+.card p { color: var(--muted); }
+.card strong { color: var(--text); }
+.card.featured { border-left: 4px solid var(--accent); }
+.card:hover, .card:focus-within { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 12px 36px -10px var(--glow); }
+.card .links { margin-top: auto; padding-top: .4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.card-extra > div { overflow: hidden; min-height: 0; }
+.card-extra .tags { margin: .6rem 0 0; }
+/* Só quem tem mouse vê o detalhe "escondido"; no celular tudo já aparece aberto */
+@media (hover: hover) {
+  .card-extra { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .3s, opacity .3s; }
+  .card:hover .card-extra, .card:focus-within .card-extra { grid-template-rows: 1fr; opacity: 1; }
+}
+.langs { position: relative; display: inline-flex; align-items: center; gap: .9rem; align-self: flex-start; }
+.dot { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; transition: box-shadow .3s; }
+.dot.py { background: var(--py); }
+.dot.jv { background: var(--jv); }
+.langs.both::before { content: ""; position: absolute; left: .35rem; right: .35rem; top: 50%; height: 1px; background: var(--border); transition: background .3s; }
+.card:hover .langs::before, .card:focus-within .langs::before { background: var(--accent); }
+.card:hover .dot.py, .card:focus-within .dot.py { box-shadow: 0 0 10px 2px var(--py); }
+.card:hover .dot.jv, .card:focus-within .dot.jv { box-shadow: 0 0 10px 2px var(--jv); }
+.legend { display: flex; gap: 1.25rem; font-size: .9rem; color: var(--muted); }
+.legend .dot { margin-right: .35rem; }
+
+/* Constelação: as linhas são "desenhadas" (stroke-dashoffset) quando entram na tela */
+.constellation { margin: 1.5rem 0 0; }
+.constellation svg { display: block; width: 100%; max-height: 14rem; }
+.constellation figcaption { text-align: center; font-size: .9rem; color: var(--muted); }
+.cl { fill: none; stroke-width: .3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s ease; }
+.cl.py { stroke: var(--py); } .cl.jv { stroke: var(--jv); }
+.cs { opacity: 0; transition: opacity .6s .8s; }
+.cs.py { fill: var(--py); } .cs.jv { fill: var(--jv); } .cs.shared { fill: var(--accent); }
+.is-visible .cl { stroke-dashoffset: 0; }
+.is-visible .cs { opacity: 1; }
+
+/* ================================================================
+   8. CONTATO
+   ================================================================ */
+.form { display: grid; gap: 1.1rem; max-width: 36rem; }
+.field label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.field input, .field textarea { width: 100%; padding: .75rem .9rem; font: inherit; color: var(--text); background: var(--bg); border: 1.5px solid var(--border); border-radius: .6rem; }
+.field [aria-invalid="true"] { border-color: var(--danger); }
+.error { min-height: 1.2em; margin: .3rem 0 0; font-size: .9rem; color: var(--danger); }
+.status { margin: 0; font-weight: 600; }
+.status.ok { color: var(--ok); } .status.err { color: var(--danger); }
+.contact-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
+.site-footer { text-align: center; color: var(--muted); margin-bottom: 2rem; }
+.site-footer p { margin: 0 auto; }
+
+/* ================================================================
+   9. MOVIMENTO: revelar, entrada de página e transição entre páginas
+   ================================================================ */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+main { animation: enter .45s ease both; }
+@keyframes enter { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}

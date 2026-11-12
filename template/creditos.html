@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Créditos — João Rodrigo</title>
+    <meta name="description" content="Repositórios do GitHub para estudar as técnicas de front-end usadas neste portfólio.">
+    <meta property="og:title" content="Créditos — João Rodrigo">
+    <meta property="og:description" content="Repositórios do GitHub para estudar as técnicas de front-end usadas neste portfólio.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <!-- Idiomas: os dois arquivos ficam na mesma pasta, então os links são relativos e curtos -->
+    <link rel="alternate" hreflang="pt-BR" href="creditos.html">
+    <link rel="alternate" hreflang="en" href="credits.html">
+    <link rel="alternate" hreflang="x-default" href="creditos.html">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <!-- ===== ACESSIBILIDADE: link para pular direto ao conteúdo ===== -->
+    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+    <!-- ===== FUNDO: céu que escurece ao rolar (estrelas criadas pelo main.js) ===== -->
+    <div class="sky" aria-hidden="true">
+        <div class="stars"></div>
+    </div>
+    <!-- ===== CABEÇALHO: marca, idioma PT|EN, tema claro/escuro e menu ===== -->
+    <header class="site-header">
+        <a class="brand" href="index.html">João Rodrigo</a>
+        <div class="controls">
+            <div class="lang">
+                <span aria-current="true">PT</span>
+                <a href="credits.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+            </div>
+            <button class="icon-btn theme-toggle" type="button" aria-label="Alternar tema claro/escuro"></button>
+        </div>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"></button>
+        <nav aria-label="Menu">
+            <!-- Menu principal: o item "Créditos" aponta para esta página (aria-current marca a página atual) -->
+            <ul class="nav-list" id="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="creditos.html" aria-current="page">Créditos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="wrap" id="conteudo">
+        <!-- ===== SEÇÃO 1: apresentação da página ===== -->
+        <section class="panel reveal">
+            <h1>Créditos</h1>
+            <p class="lead">Todo o código deste site foi escrito para este projeto. Os repositórios abaixo são o lugar para estudar e consultar as técnicas usadas aqui: temas claro e escuro, animações ao rolar, acessibilidade e transição entre páginas. Confira a licença de cada repositório antes de reutilizar código.</p>
+        </section>
+        <!-- ===== SEÇÃO 2: repositórios recomendados (reaproveita .grid e .card do CSS) ===== -->
+        <section class="panel" aria-label="Repositórios de front-end">
+            <ul class="grid">
+                <!-- Repositório: mdn/content -->
+                <li class="reveal">
+                    <article class="card">
+                        <h3>mdn/content</h3>
+                        <p>A documentação aberta do MDN Web Docs, com HTML, CSS e JavaScript explicados e com exemplos.</p>
+                        <p><strong>Onde aparece neste site:</strong> HTML semântico, variáveis CSS (os temas), IntersectionObserver, localStorage e prefers-color-scheme.</p>
+                        <p class="links"><a href="https://github.com/mdn/content" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>
+                    </article>
+                </li>
+                <!-- Repositório: mdn/dom-examples -->
+                <li class="reveal">
+                    <article class="card">
+                        <h3>mdn/dom-examples</h3>
+                        <p>Exemplos de código que acompanham a documentação das APIs do navegador (DOM e Web APIs).</p>
+                        <p><strong>Onde aparece neste site:</strong> A base do main.js: eventos, DOM e matchMedia (tema automático e movimento reduzido).</p>
+                        <p class="links"><a href="https://github.com/mdn/dom-examples" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>
+                    </article>
+                </li>
+                <!-- Repositório: a11yproject/a11yproject.com -->
+                <li class="reveal">
+                    <article class="card">
+                        <h3>a11yproject/a11yproject.com</h3>
+                        <p>O A11Y Project: guias práticos de acessibilidade na web.</p>
+                        <p><strong>Onde aparece neste site:</strong> Foco visível, rótulos nos campos, contraste das cores, link para pular ao conteúdo e respeito a reduzir movimento.</p>
+                        <p class="links"><a href="https://github.com/a11yproject/a11yproject.com" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>
+                    </article>
+                </li>
+                <!-- Repositório: WICG/view-transitions -->
+                <li class="reveal">
+                    <article class="card">
+                        <h3>WICG/view-transitions</h3>
+                        <p>Proposta e explicações da API View Transitions, mantidas pela comunidade WICG.</p>
+                        <p><strong>Onde aparece neste site:</strong> A transição suave entre páginas (@view-transition no CSS).</p>
+                        <p class="links"><a href="https://github.com/WICG/view-transitions" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>
+                    </article>
+                </li>
+                <!-- Repositório: thedaviddias/Front-End-Checklist -->
+                <li class="reveal">
+                    <article class="card">
+                        <h3>thedaviddias/Front-End-Checklist</h3>
+                        <p>Lista de verificação para revisar um site front-end antes de publicar.</p>
+                        <p><strong>Onde aparece neste site:</strong> O checklist final antes de publicar: SEO, desempenho, acessibilidade e boas práticas.</p>
+                        <p class="links"><a href="https://github.com/thedaviddias/Front-End-Checklist" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="wrap panel site-footer">
+        <p>João Rodrigo — feito com HTML, CSS e JavaScript puros.</p>
+    </footer>
+</body>
+</html>
